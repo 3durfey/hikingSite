@@ -1,0 +1,9 @@
+.test {
+  background-color: red;
+  height: 500px;
+  width: 500px;
+}
+.mapContainerStyle {
+  width: "50vw";
+  height: "50vh";
+};
