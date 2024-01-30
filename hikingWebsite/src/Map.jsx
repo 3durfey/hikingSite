@@ -1,12 +1,11 @@
 import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import styles from "./styles/Header.module.css";
 
 const libraries = ["places"];
 
-const App = () => {
+function Map() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBuUDW8H_mEEvrV4IBDMicmTUDskp01b8g",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     libraries,
   });
 
@@ -17,16 +16,16 @@ const App = () => {
   if (!isLoaded) {
     return <div>Loading maps</div>;
   }
-
   return (
-    <div>
+    <div className="map">
       <GoogleMap
         mapContainerStyle={{ width: "50vw", height: "50vh" }}
         zoom={10}
         center={{ lat: 39.7850304, lng: -86.1340752 }}
+        className="map"
       ></GoogleMap>
     </div>
   );
-};
+}
 
-export default App;
+export default Map;

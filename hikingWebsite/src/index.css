@@ -1,0 +1,17 @@
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  margin: 0;
+}
+.map {
+  flex-grow: 1;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
