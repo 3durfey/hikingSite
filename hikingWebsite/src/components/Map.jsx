@@ -1,8 +1,10 @@
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-
+import { useContext } from "react";
 const libraries = ["places"];
+import { PostContext } from "./Container.jsx";
 
 function Map() {
+  const posts = useContext(PostContext);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     libraries,
@@ -14,8 +16,15 @@ function Map() {
   if (!isLoaded) {
     return <div>Loading maps</div>;
   }
+  let result = posts[0];
+  if (result !== undefined) {
+    console.log(result.excerpt.rendered);
+  }
   return (
     <div className="map">
+      {posts.map((post, index) => (
+        <div key={index}>{post.id}</div>
+      ))}
       <GoogleMap
         mapContainerStyle={{ width: "50vw", height: "50vh" }}
         zoom={10}

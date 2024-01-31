@@ -7,15 +7,18 @@ import Footer from "./Footer.jsx";
 
 const PostContext = createContext();
 
-export default function Container() {
+function Container() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    async function fetchFunc() {
-      const res = await fetchPosts();
-      console.log(res);
-      setPosts(res);
-    }
-    fetchFunc();
+    (async function () {
+      try {
+        const posts = await fetchPosts();
+        setPosts(posts);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -28,3 +31,4 @@ export default function Container() {
     </div>
   );
 }
+export { PostContext, Container };
