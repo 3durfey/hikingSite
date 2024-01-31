@@ -16,14 +16,16 @@ function Map() {
   if (!isLoaded) {
     return <div>Loading maps</div>;
   }
+  /*
   let result = posts[0];
   if (result !== undefined) {
     console.log(result.excerpt.rendered);
   }
+  */
   return (
     <div className="map">
       {posts.map((post, index) => (
-        <div key={index}>{post.id}</div>
+        <div key={index}>{post.title.rendered}</div>
       ))}
       <GoogleMap
         mapContainerStyle={{ width: "50vw", height: "50vh" }}
