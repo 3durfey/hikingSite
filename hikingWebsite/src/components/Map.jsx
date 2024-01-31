@@ -1,4 +1,3 @@
-import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 const libraries = ["places"];
@@ -12,7 +11,6 @@ function Map() {
   if (loadError) {
     return <div>Error loading maps</div>;
   }
-
   if (!isLoaded) {
     return <div>Loading maps</div>;
   }

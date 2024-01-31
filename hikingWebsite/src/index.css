@@ -1,9 +1,5 @@
 #root {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 body {
@@ -11,8 +7,14 @@ body {
 }
 .map {
   flex-grow: 1;
-  background-color: blue;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
