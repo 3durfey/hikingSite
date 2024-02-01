@@ -4,11 +4,14 @@ import fetchPosts from "../jsFunctions/fetchPosts";
 import Map from "./Map.jsx";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
+import HikeInfo from "./HikeInfo.jsx";
 
 const PostContext = createContext();
 
 function Container() {
   const [posts, setPosts] = useState([]);
+  const [currentPost, setCurrentPost] = useState(0);
+
   useEffect(() => {
     (async function () {
       try {
@@ -23,9 +26,14 @@ function Container() {
 
   return (
     <div className="main">
-      <PostContext.Provider value={posts}>
+      <PostContext.Provider value={{ posts, currentPost, setCurrentPost }}>
         <Header />
-        <Map />
+        <div className="center">
+          <div className="centerMain">
+            <HikeInfo />
+            <Map />
+          </div>
+        </div>
         <Footer />
       </PostContext.Provider>
     </div>

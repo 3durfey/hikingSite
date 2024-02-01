@@ -24,9 +24,6 @@ function Map() {
   */
   return (
     <div className="map">
-      {posts.map((post, index) => (
-        <div key={index}>{post.title.rendered}</div>
-      ))}
       <GoogleMap
         mapContainerStyle={{ width: "50vw", height: "50vh" }}
         zoom={10}

@@ -6,10 +6,10 @@ body {
   margin: 0;
 }
 .map {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 30px;
 }
 .main {
   display: flex;
@@ -17,4 +17,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.center {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  flex-grow: 1;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  flex-grow: 1;
+  padding: 50px;
+}
+.centerMain {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
