@@ -4,12 +4,8 @@ component for the header of the website, contains the title and the dropdown men
 
 import styles from "../styles/Header.module.css";
 import Button from "./Button.jsx";
-import { useContext } from "react";
-import { PostContext } from "./Container.jsx";
 
 export default function Header() {
-  const { posts, currentPost, setCurrentPost } = useContext(PostContext);
-  const titles = posts.map((post) => post.title.rendered);
   return (
     <div className={styles.main}>
       <h1>HikeFlow</h1>

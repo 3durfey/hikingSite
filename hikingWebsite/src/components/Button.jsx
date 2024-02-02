@@ -10,10 +10,10 @@ import { PostContext } from "./Container.jsx";
 
 export default function Button({ title }) {
   const { posts, currentPost, setCurrentPost } = useContext(PostContext);
-  const buttons = posts.map((post) => post.title.rendered);
+  const titles = posts.map((post) => post.title.rendered);
   return (
     <DropdownButton id="dropdown-basic-button" title={title}>
-      {buttons.map((button, index) => (
+      {titles.map((button, index) => (
         <Dropdown.Item
           onClick={() => setCurrentPost(index)}
           key={index}

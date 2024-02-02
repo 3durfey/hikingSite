@@ -1,10 +1,9 @@
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import { useContext } from "react";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import { useEffect } from "react";
+
 const libraries = ["places"];
-import { PostContext } from "./Container.jsx";
 
 function Map() {
-  const posts = useContext(PostContext);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     libraries,
@@ -16,12 +15,6 @@ function Map() {
   if (!isLoaded) {
     return <div>Loading maps</div>;
   }
-  /*
-  let result = posts[0];
-  if (result !== undefined) {
-    console.log(result.excerpt.rendered);
-  }
-  */
   return (
     <div className="map">
       <GoogleMap
@@ -29,7 +22,13 @@ function Map() {
         zoom={10}
         center={{ lat: 39.7850304, lng: -86.1340752 }}
         className="map"
-      ></GoogleMap>
+      >
+        <MarkerF
+          label="Start"
+          position={{ lat: 39.7850304, lng: -86.1340752 }}
+        />
+        <MarkerF label="End" position={{ lat: 39, lng: -86.13407520001 }} />
+      </GoogleMap>
     </div>
   );
 }

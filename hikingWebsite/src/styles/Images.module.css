@@ -1,0 +1,11 @@
+.image {
+  height: 400px;
+  width: auto;
+}
+.imageContainer {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+}

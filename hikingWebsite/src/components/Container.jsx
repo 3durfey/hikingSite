@@ -15,7 +15,7 @@ function Container() {
   useEffect(() => {
     (async function () {
       try {
-        const posts = await fetchPosts();
+        const posts = await fetchPosts("posts");
         setPosts(posts);
       } catch (error) {
         console.error("Error fetching posts:", error);
