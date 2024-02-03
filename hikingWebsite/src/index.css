@@ -9,16 +9,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  margin: 20px;
   border-radius: 10px;
-  background-color: red;
+  padding: 20px;
+  background-color: black;
 }
 .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 .center {
   display: flex;
@@ -29,7 +30,8 @@ body {
 .info {
   display: flex;
   flex-direction: column;
-  background-color: red;
+  justify-content: top;
+  align-items: center;
   flex-grow: 1;
   padding: 50px;
 }
@@ -37,4 +39,11 @@ body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+}
+
+@media (max-width: 1200px) {
+  .centerMain {
+    flex-direction: column;
+    width: 100vw;
+  }
 }

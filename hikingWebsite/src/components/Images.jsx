@@ -15,6 +15,7 @@ export default function Images() {
         posts.length > 0
           ? new RegExp(posts[currentPost].slug, "i")
           : new RegExp("test", "i");
+
       try {
         const Images = await fetchPosts("media");
         const ImagesFiltered = Images.filter(
