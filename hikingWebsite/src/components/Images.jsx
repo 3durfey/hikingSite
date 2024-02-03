@@ -31,13 +31,21 @@ export default function Images() {
 
   return (
     <div className={styles.imageContainer}>
-      <Carousel>
-        {images.map((image, index) => (
-          <Carousel.Item key={index}>
-            <img className={styles.image} src={image.link} alt="First slide" />
-          </Carousel.Item>
-        ))}
-      </Carousel>
+      {images ? (
+        <Carousel>
+          {images.map((image, index) => (
+            <Carousel.Item key={index}>
+              <img
+                className={styles.image}
+                src={image.link}
+                alt="First slide"
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        <i className="fas fa-spinner fa-4x fa-spin"></i>
+      )}
     </div>
   );
 }

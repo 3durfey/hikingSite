@@ -7,8 +7,9 @@ export default function HikeInfo() {
   const info = posts[currentPost];
   return (
     <div className="info">
-      <Images></Images>
-      <h1>WordPress Posts</h1>
+      <Images />
+
+      <h1>Info</h1>
       <ul>
         {info && (
           <li key={info.id}>
