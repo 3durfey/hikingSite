@@ -8,18 +8,15 @@ import { PostContext } from "./Container.jsx";
 export default function Images() {
   const { posts, currentPost } = useContext(PostContext);
   const [images, setImages] = useState([]);
-  let regex = new RegExp("test", "i");
-
-  if (posts.length > 0) {
-    regex = new RegExp(posts[currentPost].slug, "i");
-  }
 
   useEffect(() => {
     (async function () {
+      let regex =
+        posts.length > 0
+          ? new RegExp(posts[currentPost].slug, "i")
+          : new RegExp("test", "i");
       try {
         const Images = await fetchPosts("media");
-        console.log(posts);
-
         const ImagesFiltered = Images.filter(
           (media) =>
             media.media_type === "image" && regex.test(media.title.rendered)
@@ -29,8 +26,7 @@ export default function Images() {
         console.error("Error fetching posts:", error);
       }
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [posts]);
+  }, [currentPost, posts]);
 
   return (
     <div className={styles.imageContainer}>
