@@ -13,6 +13,7 @@
     "@react-google-maps/api": "^2.19.2",
     "bootstrap": "^5.3.2",
     "html-react-parser": "^5.1.1",
+    "html-to-json-parser": "^2.0.0",
     "popper.js": "^1.16.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",

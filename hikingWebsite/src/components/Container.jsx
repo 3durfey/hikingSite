@@ -11,7 +11,10 @@ const PostContext = createContext();
 function Container() {
   const [posts, setPosts] = useState([]);
   const [currentPost, setCurrentPost] = useState(0);
-
+  let cur = posts[currentPost];
+  if (posts.length > 0) {
+    cur = posts[currentPost].slug;
+  }
   useEffect(() => {
     (async function () {
       try {
@@ -31,7 +34,7 @@ function Container() {
         <div className="center">
           <div className="centerMain">
             <HikeInfo />
-            <Map />
+            <Map post={cur} />
           </div>
         </div>
         <Footer />

@@ -1,33 +1,45 @@
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import fetchPosts from "../jsFunctions/fetchPosts";
+import PropTypes from "prop-types";
 
-const libraries = ["places"];
+function Map({ post }) {
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
+  console.log(typeof lat, typeof lng);
+  useEffect(() => {
+    (async function () {
+      const posts = await fetchPosts("categories");
+      const val = posts.filter((postTemp) => {
+        if (postTemp.name.toLowerCase() === post) {
+          return postTemp;
+        }
+      });
+      const [lat, lng] = val[0].description.split(",");
+      setLat(parseInt(lat));
+      setLng(parseInt(lng));
+    })();
+  }, [post]);
 
-function Map() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
-    libraries,
   });
-
   if (loadError) {
     return <div>Error loading maps</div>;
   }
   if (!isLoaded) {
     return <div>Loading maps</div>;
   }
+
   return (
     <div className="map">
       <GoogleMap
         mapContainerStyle={{ width: "50vw", height: "50vh" }}
         zoom={10}
-        center={{ lat: 39.7850304, lng: -86.1340752 }}
+        center={{ lat: lat, lng: lng }}
         className="map"
       >
-        <MarkerF
-          label="Start"
-          position={{ lat: 39.7850304, lng: -86.1340752 }}
-        />
-        <MarkerF label="End" position={{ lat: 39, lng: -86.13407520001 }} />
+        <MarkerF label="Start" position={{ lat: lat, lng: lng }} />
       </GoogleMap>
     </div>
   );
