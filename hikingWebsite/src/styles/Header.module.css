@@ -2,7 +2,7 @@
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: grey;
+  background-color: var(--grey);
   height: 90px;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@
   margin: 10px;
   border: solid black;
   border-radius: 10px;
-  background-color: green;
+  background-color: white;
 }
 .imageContainer {
   display: flex;

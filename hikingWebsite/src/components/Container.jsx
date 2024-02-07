@@ -6,16 +6,14 @@ import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import HikeInfo from "./HikeInfo.jsx";
 import landscape2 from "../../images/landscape2.jpg";
+import Item from "./Item.jsx";
 
 const PostContext = createContext();
 
 function Container() {
   const [posts, setPosts] = useState([]);
   const [currentPost, setCurrentPost] = useState(0);
-  let cur = posts[currentPost];
-  if (posts.length > 0) {
-    cur = posts[currentPost].slug;
-  }
+  const [images, setImages] = useState([]);
   useEffect(() => {
     (async function () {
       try {
@@ -27,7 +25,17 @@ function Container() {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  useEffect(() => {
+    (async function () {
+      try {
+        const images = await fetchPosts("media");
+        console.log(images);
+        setImages(images);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    })();
+  }, []);
   return (
     <div className="main">
       <PostContext.Provider value={{ posts, currentPost, setCurrentPost }}>
@@ -35,8 +43,7 @@ function Container() {
         <img src={landscape2} className="image" alt="image of beach" />
         <div className="center">
           <div className="centerMain">
-            <HikeInfo />
-            <Map post={cur} />
+            <Item images={images} />
           </div>
         </div>
         <Footer />

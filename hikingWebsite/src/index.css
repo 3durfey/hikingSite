@@ -2,6 +2,10 @@
   height: 100vh;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+:root {
+  --grey: rgb(79, 79, 79);
+  --white: red;
+}
 body {
   margin: 0;
 }
@@ -41,8 +45,9 @@ body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  overflow: auto;
 }
 .image {
   width: 100vw;
@@ -66,7 +71,6 @@ li > p {
   display: none;
 }
 .wpDiv {
-  background-color: blue;
   flex-grow: 1;
   width: 100%;
 }
