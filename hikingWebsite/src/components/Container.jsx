@@ -5,6 +5,7 @@ import Map from "./Map.jsx";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import HikeInfo from "./HikeInfo.jsx";
+import landscape2 from "../../images/landscape2.jpg";
 
 const PostContext = createContext();
 
@@ -31,6 +32,7 @@ function Container() {
     <div className="main">
       <PostContext.Provider value={{ posts, currentPost, setCurrentPost }}>
         <Header />
+        <img src={landscape2} className="image" alt="image of beach" />
         <div className="center">
           <div className="centerMain">
             <HikeInfo />

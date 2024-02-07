@@ -1,12 +1,11 @@
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 import fetchPosts from "../jsFunctions/fetchPosts";
-import PropTypes from "prop-types";
 
 function Map({ post }) {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
-  console.log(typeof lat, typeof lng);
+  //get coordinates from wordpress
   useEffect(() => {
     (async function () {
       const posts = await fetchPosts("categories");
@@ -20,7 +19,7 @@ function Map({ post }) {
       setLng(parseInt(lng));
     })();
   }, [post]);
-
+  //get map from google
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
   });

@@ -3,7 +3,7 @@
   padding-left: 20px;
   padding-right: 20px;
   background-color: grey;
-  height: 100px;
+  height: 90px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,4 +14,24 @@
   flex-direction: row;
   justify-content: space-between;
   width: 20%;
+}
+.img {
+  width: 100px;
+  height: auto;
+  margin: 10px;
+  border: solid black;
+  border-radius: 10px;
+  background-color: green;
+}
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.title {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-right: 10px;
+  border-bottom: solid black;
+  border-right: solid black;
 }
