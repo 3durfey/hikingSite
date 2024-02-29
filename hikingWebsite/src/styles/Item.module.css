@@ -25,10 +25,10 @@
   border-radius: 20px;
   margin: 20px;
   /* transition effect. not necessary */
-  transition: opacity 0.2s, visibility 0.2s;
+  transition: opacity 0.01s, visibility 0.01s;
 }
 .imageDescription {
-  transition: 0.2s;
+  transition: 0.01s;
   transform: translateY(1em);
 }
 .imageWrapper:hover .imageDescription {

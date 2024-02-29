@@ -4,6 +4,8 @@ import parse from "html-react-parser";
 import landscape2 from "../../images/landscape2.jpg";
 import { useEffect, useState } from "react";
 import fetchPosts from "../jsFunctions/fetchPosts";
+import { Link } from "react-router-dom";
+
 export default function Item() {
   const [images, setImages] = useState([]);
 
@@ -12,7 +14,6 @@ export default function Item() {
     (async function () {
       try {
         const images = await fetchPosts("media");
-        console.log(images);
         setImages(images);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -26,17 +27,14 @@ export default function Item() {
         {images &&
           // eslint-disable-next-line react/prop-types
           images.map((image, index) => (
-            <div key={index} className={styles.imageWrapper}>
+            <Link to="test" key={index} className={styles.imageWrapper}>
               <img className={styles.image} src={image.link} alt="item image" />
-              <div
-                className={styles.descriptionContainer}
-                onClick={() => console.log(image.title.rendered)}
-              >
-                <p className={styles.imageDescription}>
+              <div className={styles.descriptionContainer}>
+                <div className={styles.imageDescription}>
                   {parse(image.caption.rendered)}
-                </p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
       </div>
     </>

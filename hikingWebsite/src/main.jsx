@@ -5,6 +5,11 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Item from "./components/Item.jsx";
 import Map from "./components/Map.jsx";
+import HikeInfo from "./components/HikeInfo.jsx";
+
+async function test({ params }) {
+  return "test";
+}
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",
@@ -15,6 +20,11 @@ const BrowserRouter = createBrowserRouter([
           {
             index: true,
             element: <Item />,
+          },
+          {
+            path: "test",
+            element: <HikeInfo />,
+            loader: test,
           },
         ],
       },
